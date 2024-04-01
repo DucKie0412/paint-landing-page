@@ -1,0 +1,33 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+:root{
+    --navbar-header-height: 50px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    // Code goes here
+    font-size: 62.5%;
+};
+
+body {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    text-rendering: optimizeSpeed;
+}
+
+// button, input, [tabindex]{
+//     outline: none;
+//     border: none;
+// }
+
+// a[href] {
+//     text-decoration: none;
+// }

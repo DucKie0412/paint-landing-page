@@ -1,0 +1,32 @@
+.wrapper{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        text-align: center;
+        font-size: 45px;
+        margin-bottom: 30px;
+    }
+
+}
+.building-list{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+
+    img{
+        flex: 0 1 33%;
+        width: 300px;
+        height: auto;
+        padding: 13px;
+        transition: transform 0.3s ease; /* Hiệu ứng mượt mà khi hover */
+
+    }
+    img:hover{
+        transform: scale(1.1);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+}

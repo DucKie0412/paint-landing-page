@@ -1,0 +1,19 @@
+.news{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 0 50px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1{
+        font-size: 45px;
+    }
+}
+
+.news-list{
+    display: flex;
+
+}

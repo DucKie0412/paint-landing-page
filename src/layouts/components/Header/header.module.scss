@@ -1,0 +1,143 @@
+.wrapper {
+    width: 100%;
+}
+
+.ticker {
+    padding: 5px;
+    background-color: #fff44f;
+    color: #000;
+    font-weight: 500;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-image {
+    width: 100%;
+    min-height: 400px;
+    max-height: 400px;
+    background-image: url("https://cdn.sforum.vn/sforum/wp-content/uploads/2023/08/Arlecchino-1-1140x641.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: top;
+}
+
+.navbar {
+    display: flex;
+    height: var(--navbar-header-height);
+    border: 1px solid #ccc;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff3533;
+    transition: all 0.3s ease;
+}
+
+.navbar2{
+    display: flex;
+    height: var(--navbar-header-height);
+    border: 1px solid #ccc;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff3533;
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    margin-top: 34px;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar-item {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 7px;
+}
+
+.navbar-site {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    font-weight: 500;
+
+    .site {
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+        height: var(--navbar-header-height);
+        cursor: pointer;
+
+        &:hover{
+            background-color: #fff44f;
+            color: #000;
+        }
+    }
+}
+
+.navbar-search{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.search {
+    display: flex;
+    height: calc(var(--navbar-header-height) - 15px);
+    margin-right: 20px;
+
+    input {
+        border-top-left-radius: 92px;
+        border-bottom-left-radius: 92px;
+        flex: 1;
+        color: #000;
+        font-size: 1.6rem;
+        height: 100%;
+        border: 1px solid #ccc;
+        outline: none;
+        padding: 0px 15px;
+        caret-color: red;
+        padding-right: 40px;
+    }
+
+    input:not(:placeholder-shown) ~ .search-button {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+
+.search-button {
+    width: 52px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    border-top-right-radius: 92px;
+    border-bottom-right-radius: 92px;
+    font-size: 1.7rem;
+
+    color: rgba(22, 24, 35, 0.3);
+
+    &:hover {
+        cursor: pointer;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        height: 28px;
+        width: 1px;
+        top: 9px;
+        right: 52px;
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+
+}
