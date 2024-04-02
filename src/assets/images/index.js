@@ -20,7 +20,12 @@ const images = {
         slide11: require('./slide4.jpg'),
         slide12: require('./slide5.jpg'),
     },
-    test: require('./ei_avt.jpg')
+    test: require('./ei_avt.jpg'),
+    icon:{
+        facebook: require('./fb.png'),
+        youtube: require('./yt.png'),
+        zalo: require('./zalo.png'),
+    }
 }
 
 export default images;

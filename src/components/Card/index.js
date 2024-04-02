@@ -3,7 +3,7 @@ import styles from './Card.module.scss'
 import images from '~/assets/images';
 const cx = classNames.bind(styles)
 
-function Card({image, name, body}) {
+function Card({ image, name, body, button = false, link }) {
     return (
         <div className={cx('card')}>
             <div className={cx('card-image')}>
@@ -15,9 +15,11 @@ function Card({image, name, body}) {
             <div className={cx('card-body')}>
                 <p className={cx('card-text')}>{body}</p>
             </div>
-            <div className={cx('card-button')}>
-                <a href="/">Chi tiết</a>
-            </div>
+            {button && (
+                <div className={cx('card-button')}>
+                    <a href="/">Chi tiết</a>
+                </div>
+            )}
         </div>
     );
 }

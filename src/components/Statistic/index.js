@@ -8,24 +8,24 @@ function Statistic() {
     return (
         <div className={cx('wrapper')}>
             <ChildStatistic
-                total={20}
+                total={5}
                 time={100}
-                content="nam kinh nghiem trong nghe"
+                content="năm kinh nghiệm trong nghề"
             />
             <ChildStatistic
                 total={1107}
                 time={100}
-                content="san pham da duoc ban ra thi truong"
+                content="thùng sơn đã được bán ra thị trường"
             />
             <ChildStatistic
                 total={285}
                 time={100}
-                content="so luowng cong trinh da nhiem thu"
+                content="số lượng công trình đã nhiệm thu"
             />
             <ChildStatistic
                 type='4.7'
                 time={100}
-                content="danh gia cua khach hang"
+                content="đánh giá của khách hàng"
             />
         </div>
     );

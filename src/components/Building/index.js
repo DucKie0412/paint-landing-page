@@ -2,6 +2,8 @@ import { useState, React } from 'react';
 import ReactModal from 'react-modal';
 import classNames from 'classnames/bind';
 import styles from './Building.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 const cx = classNames.bind(styles)
@@ -43,13 +45,13 @@ function Building({ images }) {
 
     return (
         <div className={cx('wrapper')}>
-            <h2>Mot so hinh anh cong trinh thuc te</h2>
+            <h2>Một số hình ảnh công trình thực tế</h2>
             <div className={cx('building-list')}>
                 {images.map((image, index) => (
                     <img
                         key={index}
                         src={image}
-                        alt="carousel"
+                        alt=""
                         className={cx('image')}
                         onClick={() => openModal(index)}
                     />
@@ -64,11 +66,11 @@ function Building({ images }) {
                     style={customStyles}>
 
                     <div style={{ textAlign: 'right' }}>
-                        <button onClick={() => closeModal(index)}>Close</button>
+                        <button onClick={() => closeModal(index)}><FontAwesomeIcon icon={faXmark} style={{width: 30}}/></button>
                     </div>
                     <img
                         src={image}
-                        alt="carousel"
+                        alt=""
                         className={cx('modal-image')}
                         style={{ maxWidth: '100%', maxHeight: '100%' }}
                     />
