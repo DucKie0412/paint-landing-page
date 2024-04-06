@@ -1,4 +1,4 @@
-.card{
+.card {
     position: relative;
     width: 300px;
     height: 385px;
@@ -13,43 +13,50 @@
     -o-border-radius: 20px;
 }
 
-.card-image{
+.card-image {
     width: 100%;
-    img{
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    img {
         width: 100%;
         height: 200px;
     }
 }
 
-.card-title{
+.card-title {
     margin-top: 20px;
 }
 
-.card-body{
+.card-body {
     padding: 10px;
-    max-height: 80px; /* Đặt chiều cao tối đa của card-body (3 dòng) */
-    overflow: hidden; /* Ẩn nội dung vượt quá chiều cao */
+    max-height: 80px;
+    /* Đặt chiều cao tối đa của card-body (3 dòng) */
+    overflow: hidden;
+    /* Ẩn nội dung vượt quá chiều cao */
     display: -webkit-box;
-    -webkit-box-orient: vertical; /* Hiển thị nội dung theo chiều dọc */
+    -webkit-box-orient: vertical;
+    /* Hiển thị nội dung theo chiều dọc */
 }
 
-.card-text{
+.card-text {
     text-indent: 20px;
     margin: 0;
     overflow: hidden;
-    white-space: normal; /* Cho phép nội dung lấn xấu sang hàng tiếp theo */
+    white-space: normal;
+    /* Cho phép nội dung lấn xấu sang hàng tiếp theo */
 }
 
-.card-button{
+.card-button {
     position: absolute;
     bottom: 0;
     margin: 20px 0 10px 40px;
-    a{
+
+    a {
         text-decoration: none;
     }
-    a:hover{
+
+    a:hover {
         color: red;
     }
 }

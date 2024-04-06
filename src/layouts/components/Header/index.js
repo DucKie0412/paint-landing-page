@@ -1,4 +1,5 @@
 import { useState, useEffect, React } from 'react';
+import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 import styles from './header.module.scss';
 import classNames from 'classnames/bind';
@@ -39,11 +40,21 @@ function Header() {
             <div className={cx(isSticky)}>
                 <div className={cx("navbar-item")}>
                     <div className={cx('navbar-site')}>
-                        <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faHome} />Trang chủ</div>
-                        <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faProductHunt} />Sản phẩm</div>
-                        <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faPalette} />Bảng màu</div>
-                        <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faShieldCat} />Chính sách</div>
-                        <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faPhone} />Tư vấn</div>
+                        <Link to='/' className={cx('link')}>
+                            <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faHome} />Trang chủ</div>
+                        </Link>
+                        <Link to="/products" className={cx('link')}>
+                            <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faProductHunt} />Sản phẩm</div>
+                        </Link>
+                        <Link to="/" className={cx('link')}>
+                            <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faPalette} />Bảng màu</div>
+                        </Link>
+                        <Link to="/" className={cx('link')}>
+                            <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faShieldCat} />Chính sách</div>
+                        </Link>
+                        <Link to="/" className={cx('link')}>
+                            <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faPhone} />Tư vấn</div>
+                        </Link>
                     </div>
                 </div>
 

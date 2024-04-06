@@ -1,0 +1,62 @@
+.content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .mySwiper {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ccc;
+    }
+}
+
+.button {
+    position: relative;
+    max-width: 1200px;
+    display: flex;
+    float: right;
+
+    .swiper-button-next, .swiper-button-prev {
+        width: 50px;
+        height: 50px;
+        position: absolute; /* Change from float to position */
+        right: 10px; /* Position from the right */
+        top: 0; /* Position at the bottom of the container */
+        z-index: 10;
+        cursor: pointer;
+        background: #ccc;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+
+        &:after {
+            font-size: 20px;
+        }
+    }
+
+    .swiper-button-next {
+        margin-left: 60px;
+        /* Add this line */
+    }
+}
+
+
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     display: flex;
     width: 100%;
     max-width: 1782px;
@@ -7,13 +7,13 @@
     justify-content: center;
     padding: 30px 150px;
 
-    h2{
+    h2 {
         margin-left: 30px;
         font-size: 25px;
     }
 }
 
-.link{
+.link {
     text-decoration: none;
     color: #000;
 }
@@ -27,7 +27,8 @@
         width: 100%;
         height: 300px;
     }
-    .underline{
+
+    .underline {
         border: 1.5px solid #220069;
         margin-bottom: 30px;
     }
@@ -66,6 +67,7 @@
 }
 
 
+
 .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -79,30 +81,31 @@
         height: 100%;
     }
 
-    .swiper-slide:hover .slide-image{
-        transition: transform 0.5s;
-        transform: scale(1.2);
-        -webkit-transform: scale(1.2);
-        -moz-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        -o-transform: scale(1.2);
-}
-
-    &.slide-image {
+    .slide-image {
         width: 100%;
         height: auto;
         max-height: 200px;
         object-fit: cover;
         vertical-align: top;
         padding: 25px;
+
+        transition: transform 0.3s ease-in-out;
+        -webkit-transition: transform 0.3s ease-in-out;
+        -moz-transition: transform 0.3s ease-in-out;
+        -ms-transition: transform 0.3s ease-in-out;
+        -o-transition: transform 0.3s ease-in-out;
+
     }
 
-    &.slide-text {
+    .slide-text {
         /* Add any styles you want for the text here */
         padding: 30px 10px 0 10px;
     }
 }
 
+.swiper-slide:hover .slide-image {
+    transform: scale(1.1);
+}
 
 .content-grid {
     display: flex;
@@ -112,6 +115,7 @@
 
     .product-right, .product-left {
         width: 100%;
+        height: 300px;
     }
 
     .mySwiperGrid {
@@ -124,4 +128,5 @@
         padding: 20px;
         border-radius: 10px;
     }
+
 }

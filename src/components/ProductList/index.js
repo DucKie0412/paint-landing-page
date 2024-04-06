@@ -1,27 +1,40 @@
-import { useState, useEffect } from 'react'
-import classNames from 'classnames/bind'
-import styles from './ProductList.module.scss'
-import images from '~/assets/images'
-import { get } from '~/services/getDataService'
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
+// import styles from './ProductList.module.scss';
+// import classNames from 'classnames/bind';
 
-const cx = classNames.bind(styles)
+import { get } from '~/services/getDataService';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-function ProductList() {
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/grid'
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
+import './style.css';
+
+// import required modules
+import { Navigation, Autoplay, Grid } from 'swiper/modules';
+
+// const cx = classNames.bind(styles)
+
+export default function App() {
     const [data, setData] = useState([])
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
-    const [itemPerPage, setItemPerPage] = useState(6);
+    const [data1, setData1] = useState([])
+    const [data2, setData2] = useState([])
+
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await get();
+                const data1 = await get({ type: 'sonbong' });
+                const data2 = await get({ type: 'sonchongtham' });
                 setData(data);
-                const totalItem = data.length;
-                const pages = Math.ceil(totalItem / itemPerPage);
-                setTotalPages(pages);
+                setData1(data1);
+                setData2(data2);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -29,63 +42,120 @@ function ProductList() {
         fetchData();
     }, []);
 
-
-    // Lấy dữ liệu của trang hiện tại
-    const indexOfLastItem = currentPage * itemPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemPerPage;
-    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-
-    // logic chuyển trang
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    // Logic cho 2 nut tien lui
-    const isFirstPage = currentPage === 1;
-    const isLastPage = currentPage === totalPages;
+    const nextEl = useRef(null);
+    const prevEl = useRef(null);
+    const nextEl1 = useRef(null);
+    const prevEl1 = useRef(null);
+    const nextEl2 = useRef(null);
+    const prevEl2 = useRef(null);
 
     return (
-        <div className={cx('wrapper')}>
-            <h1>San pham ban chay</h1>
-            <div className={cx('product-list')}>
-                <div className={cx('products')}>
-                    {/* Render danh sách hình ảnh */}
-                    {currentItems.map((item, index) => {
-                        return (
-                            <div key={index} className={cx('product-item')}>
-                                <img src={images.test} alt={item.name} />
-                                <div className={cx('product-info')}>
-                                    <h2>{item.name}</h2>
-                                    <p>{item.price}</p>
-                                </div>
+        <div className='wrapper'>
+            <div className='highlight-product'>
+                <h1>Sản phẩm nổi bật</h1>
+                <div className='underline'></div>
+                <div className='button'>
+                    <div ref={nextEl} className="swiper-button-prev"> &rarr; </div>
+                    <div ref={prevEl} className="swiper-button-next"> &larr; </div>
+                </div>
+                <Swiper
+                    slidesPerView={5}
+                    spaceBetween={20}
+                    autoplay={{
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    }}
+                    navigation={
+                        {
+                            nextEl: nextEl.current,
+                            prevEl: prevEl.current,
+                        }
+                    }
+                    modules={[Navigation, Autoplay]}
+                    className="mySwiper"
+                >
+                    {data.map((item, index) => (
+                        <div className='slide-content'>
+                            <SwiperSlide>
+                                <Link to={'/'} className='link'>
+                                    <img src={item.image} alt="" className='slide-image' />
+                                    <div className="slide-text">{item.name}</div>
+                                </Link>
+                            </SwiperSlide>
+                        </div>
+                    ))}
+                </Swiper>
+            </div>
+
+            <div className='content-grid'>
+                <div className='product-right'>
+                    <h2>Sơn bóng</h2>
+                    <div className='button'>
+                        <div ref={nextEl1} className="swiper-button-prev"> &rarr; </div>
+                        <div ref={prevEl1} className="swiper-button-next"> &larr; </div>
+                    </div>
+                    <Swiper
+                        slidesPerView={3}
+                        grid={{
+                            rows: 2,
+                        }}
+                        spaceBetween={20}
+                        navigation={
+                            {
+                                nextEl: nextEl1.current,
+                                prevEl: prevEl1.current,
+                            }
+                        }
+                        modules={[Grid, Navigation]}
+                        className="mySwiperGrid"
+                    >
+                        {data1.map((item, index) => (
+                            <div>
+                                <SwiperSlide className='swiper-slide-grid'>
+                                    <Link to={'/'} className='link'>
+                                        <img src={item.image} alt="" className='slide-image' />
+                                        <div className="slide-text">{item.name}</div>
+                                    </Link>
+                                </SwiperSlide>
                             </div>
-                        )
-                    })}
+                        ))}
+                    </Swiper>
                 </div>
 
-                <div className={cx('page')}>
-                    {/* Phân trang */}
-                    <ul className={cx('pagination')}>
-                        <li className={cx(`page-item ${isFirstPage ? 'disabled' : ''}`)}>
-                            <button className={cx('page-link')} onClick={() => paginate(currentPage - 1)} disabled={isFirstPage}>
-                                Trang trước
-                            </button>
-                        </li>
-                        {Array.from({ length: totalPages }, (_, i) => (
-                            <li key={i} className={cx(`page-item ${i + 1 === currentPage ? 'active' : ''}`)}>
-                                <button className={cx('page-link')} onClick={() => paginate(i + 1)}>
-                                    {i + 1}
-                                </button>
-                            </li>
+                <div className='product-left'>
+                    <h2>Sơn chống thấm</h2>
+                    <div className='button'>
+                        <div ref={nextEl2} className="swiper-button-prev"> &rarr; </div>
+                        <div ref={prevEl2} className="swiper-button-next"> &larr; </div>
+                    </div>
+                    <Swiper
+                        slidesPerView={3}
+                        grid={{
+                            rows: 2,
+                        }}
+                        spaceBetween={20}
+                        navigation={
+                            {
+                                nextEl: nextEl2.current,
+                                prevEl: prevEl2.current,
+                            }
+                        }
+                        modules={[Grid, Navigation]}
+                        className="mySwiperGrid"
+                    >
+                        {data2.map((item, index) => (
+                            <div>
+                                <SwiperSlide className='swiper-slide-grid'>
+                                    <Link to={'/'} className='link'>
+                                        <Link><img src={item.image} alt="" className='slide-image' /></Link>
+                                        <div className="slide-text">{item.name}</div>
+                                    </Link>
+                                </SwiperSlide>
+                            </div>
                         ))}
-                        <li className={`page-item ${isLastPage ? 'disabled' : ''}`}>
-                            <button className={cx('page-link')} onClick={() => paginate(currentPage + 1)} disabled={isLastPage}>
-                                Tiếp
-                            </button>
-                        </li>
-                    </ul>
+                    </Swiper>
                 </div>
             </div>
         </div>
     );
 }
-
-export default ProductList;
