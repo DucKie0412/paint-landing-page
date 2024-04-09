@@ -1,4 +1,5 @@
 export const routesConfig = {
     home: '/',
-    product: '/products'
+    product: '/products',
+    contact: '/contact'
 }

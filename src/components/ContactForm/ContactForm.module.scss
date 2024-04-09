@@ -1,0 +1,82 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    margin-left: 150px;
+    background-image: url("https://kansaipaint.com.vn/wp-content/themes/k6/assets/images/bg_sp.png");
+
+    h2 {
+        font-size: 30px;
+    }
+
+    img {
+        width: 700px;
+        height: 500px;
+        margin-right: 80px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: #fff;
+        border: 1.5px solid #fff;
+        border-radius: 10px;
+        padding: 30px;
+        max-width: 550px;
+
+        label {
+            font-weight: 500;
+        }
+
+        input {
+            padding: 0 15px;
+            width: 490px;
+            height: 45px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+
+        textarea{
+            padding: 0 15px;
+            height: 100px;
+        }
+
+        button {
+            background-color: #fff;
+            height: 45px;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: 400;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button:hover {
+            background-color: rgb(247, 247, 132);
+            color: #000;
+        }
+    }
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.error {
+    color: yellow;
+}

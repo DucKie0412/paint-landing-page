@@ -52,7 +52,7 @@ function Header() {
                         <Link to="/" className={cx('link')}>
                             <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faShieldCat} />Chính sách</div>
                         </Link>
-                        <Link to="/" className={cx('link')}>
+                        <Link to="/contact" className={cx('link')}>
                             <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faPhone} />Tư vấn</div>
                         </Link>
                     </div>

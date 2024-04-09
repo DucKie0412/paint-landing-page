@@ -1,4 +1,5 @@
 import config from "~/configs";
+import Contact from "~/pages/Contact";
 import Home from "~/pages/Home";
 import Product from "~/pages/Product";
 
@@ -11,6 +12,10 @@ const publicRoutes = [
     {
         path: config.routesConfig.product,
         component: Product
+    },
+    {
+        path: config.routesConfig.contact,
+        component: Contact
     }
 ];
 
