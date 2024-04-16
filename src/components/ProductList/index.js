@@ -29,14 +29,16 @@ export default function App() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await get();
-                const data1 = await get({ type: 'sonbong' });
-                const data2 = await get({ type: 'sonchongtham' });
+                const [data, data1, data2] = await Promise.all([
+                    get(),
+                    get({ type: 'sonbong' }),
+                    get({ type: 'sonchongtham' }),
+                ]);
                 setData(data);
                 setData1(data1);
                 setData2(data2);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching data !', error);
             }
         };
         fetchData();
@@ -77,7 +79,7 @@ export default function App() {
                     {data.map((item, index) => (
                         <div className='slide-content'>
                             <SwiperSlide>
-                                <Link to={'/'} className='link'>
+                                <Link to={`/productDetail/${item.id}`} className='link'>
                                     <img src={item.image} alt="" className='slide-image' />
                                     <div className="slide-text">{item.name}</div>
                                 </Link>
@@ -112,7 +114,7 @@ export default function App() {
                         {data1.map((item, index) => (
                             <div>
                                 <SwiperSlide className='swiper-slide-grid'>
-                                    <Link to={'/'} className='link'>
+                                    <Link to={`/productDetail/${item.id}`} className='link'>
                                         <img src={item.image} alt="" className='slide-image' />
                                         <div className="slide-text">{item.name}</div>
                                     </Link>
@@ -146,7 +148,7 @@ export default function App() {
                         {data2.map((item, index) => (
                             <div>
                                 <SwiperSlide className='swiper-slide-grid'>
-                                    <Link to={'/'} className='link'>
+                                    <Link to={`/productDetail/${item.id}`} className='link'>
                                         <Link><img src={item.image} alt="" className='slide-image' /></Link>
                                         <div className="slide-text">{item.name}</div>
                                     </Link>

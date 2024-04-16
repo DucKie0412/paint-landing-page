@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { redirect } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -110,6 +111,7 @@ function ContactForm() {
             setAddress('');
             setPhone('');
             setMessage('');
+            redirect("/");
 
         } catch (error) {
             console.error('Failed to send data', error);
@@ -157,7 +159,7 @@ function ContactForm() {
                 <div className={cx('title')}><label htmlFor="message">Lời nhắn (nếu có) </label>
                     <span className={cx(errors.message ? 'error' : 'hidden')}>{errors.message || ' '}</span>
                 </div>
-                <textarea id="message" name="message" value={message} onChange={handleChange}/>
+                <textarea id="message" name="message" value={message} onChange={handleChange} />
 
                 <button type="submit">Gửi thông tin</button>
                 <ToastContainer />

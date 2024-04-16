@@ -1,5 +1,6 @@
 export const routesConfig = {
     home: '/',
     product: '/products',
-    contact: '/contact'
+    contact: '/contact',
+    productDetail: '/productDetail/:id'
 }
