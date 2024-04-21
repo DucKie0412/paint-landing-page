@@ -25,6 +25,14 @@ const images = {
         facebook: require('./fb.png'),
         youtube: require('./yt.png'),
         zalo: require('./zalo.png'),
+    },
+    productDetail:{
+        clean: require('./clean.png'),
+        construction: require('./construction.png'),
+        coverage: require('./coverage.png'),
+        dilution: require('./dilution.png'),
+        numberPaintLayer: require('./numberPaintLayer.png'),
+        time: require('./time.png'),
     }
 }
 

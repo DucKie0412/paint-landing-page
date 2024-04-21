@@ -21,18 +21,19 @@ import { Navigation, Autoplay, Grid } from 'swiper/modules';
 // const cx = classNames.bind(styles)
 
 export default function App() {
-    const [data, setData] = useState([])
-    const [data1, setData1] = useState([])
-    const [data2, setData2] = useState([])
-
+    const [data, setData] = useState([]);
+    const [data1, setData1] = useState([]);
+    const [data2, setData2] = useState([]);
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 10;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const [data, data1, data2] = await Promise.all([
-                    get(),
-                    get({ type: 'sonbong' }),
-                    get({ type: 'sonchongtham' }),
+                    get({ page: page, limit: itemsPerPage }),
+                    get({ type: 'sonbong', page: page, limit: itemsPerPage }),
+                    get({ type: 'sonchongtham', page: page, limit: itemsPerPage }),
                 ]);
                 setData(data);
                 setData1(data1);
@@ -42,7 +43,7 @@ export default function App() {
             }
         };
         fetchData();
-    }, []);
+    }, [page]);
 
     const nextEl = useRef(null);
     const prevEl = useRef(null);

@@ -13,6 +13,7 @@ const cx = classNames.bind(styles)
 function Header() {
 
     const [isSticky, setIsSticky] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,10 +49,10 @@ function Header() {
                         <Link to="/products" className={cx('link')}>
                             <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faProductHunt} />Sản phẩm</div>
                         </Link>
-                        <Link to="/" className={cx('link')}>
+                        <Link to="#" className={cx('link')}>
                             <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faPalette} />Bảng màu</div>
                         </Link>
-                        <Link to="/" className={cx('link')}>
+                        <Link to="#" className={cx('link')}>
                             <div className={cx("site")}><FontAwesomeIcon className={cx('icon')} icon={faShieldCat} />Chính sách</div>
                         </Link>
                         <Link to="/contact" className={cx('link')}>
@@ -65,11 +66,20 @@ function Header() {
                         <input
                             placeholder='Bạn muốn tìm gì?'
                             spellCheck={false}
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && inputValue) {
+                                    window.location.href = `/search/${inputValue}`;
+                            }
+                        }}
                         />
 
-                        <button className={cx('search-button')}>
-                            <FontAwesomeIcon icon={faSearch} />
-                        </button>
+                        <Link to={inputValue ? `/search/${inputValue}` : '#'}>
+                            <button className={cx('search-button')}>
+                                <FontAwesomeIcon icon={faSearch} />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

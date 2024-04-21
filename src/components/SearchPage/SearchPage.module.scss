@@ -1,0 +1,28 @@
+.card{
+    margin: 30px;
+}
+
+.card-body{
+    &:hover img{
+        transition: transform 0.5s;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+}
+
+.card-title{
+    font-size: 20px;
+}
+}
+
+.link{
+    text-decoration: none;
+    color: #220069;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

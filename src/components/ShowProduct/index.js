@@ -6,6 +6,7 @@ import { getWithID } from '~/services/getDataWithID';
 import Button from '../Button';
 import { faPhone, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import images from '~/assets/images';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -88,7 +89,7 @@ function ShowProduct({ productID }) {
                     <div class={cx('row')}>
                         <div class={cx('item')}>
                             <div class={cx('item-image')}>
-                                <img src="https://kansaipaint.com.vn/wp-content/themes/k6/assets/images/product_icon_1.png" alt="product_icon_1" />
+                                <img src={images.productDetail.construction} alt="product_icon_1" />
                             </div>
                             <div class={cx('item-title')}>
                                 <p>Thi công</p>
@@ -98,7 +99,7 @@ function ShowProduct({ productID }) {
 
                         <div class={cx('item')}>
                             <div class={cx('item-image')}>
-                                <img src="https://kansaipaint.com.vn/wp-content/themes/k6/assets/images/product_icon_2.png" alt="product_icon_1" />
+                                <img src={images.productDetail.time} alt="product_icon_1" />
                             </div>
                             <div class={cx('item-title')}>
                                 <p>Thời gian</p>
@@ -108,44 +109,40 @@ function ShowProduct({ productID }) {
 
                         <div class={cx('item')}>
                             <div class={cx('item-image')}>
-                                <img src="https://kansaipaint.com.vn/wp-content/themes/k6/assets/images/product_icon_3.png" alt="product_icon_1" />
+                                <img src={images.productDetail.coverage} alt="product_icon_1" />
                             </div>
                             <div class={cx('item-title')}>
-                                <p>
-                                    Độ che phủ			            </p>
+                                <p>Độ che phủ</p>
                             </div>
                             <div class={cx('item-info')}>10-12m²/lít</div>
                         </div>
 
                         <div class={cx('item')}>
                             <div class={cx('item-image')}>
-                                <img src="https://kansaipaint.com.vn/wp-content/themes/k6/assets/images/product_icon_4.png" alt="product_icon_1" />
+                                <img src={images.productDetail.numberPaintLayer} alt="product_icon_1" />
                             </div>
                             <div class={cx('item-title')}>
-                                <p>
-                                    Số lớp sơn			            </p>
+                                <p>Số lớp sơn</p>
                             </div>
                             <div class={cx('item-info')}>≥ 2</div>
                         </div>
 
                         <div class={cx('item')}>
                             <div class={cx('item-image')}>
-                                <img src="https://kansaipaint.com.vn/wp-content/themes/k6/assets/images/product_icon_5.png" alt="product_icon_1" />
+                                <img src={images.productDetail.dilution} alt="product_icon_1" />
                             </div>
                             <div class={cx('item-title')}>
-                                <p>
-                                    Pha loãng			            </p>
+                                <p>Pha loãng</p>
                             </div>
                             <div class={cx('item-info')}>Có thể sử dụng ngay, nếu cần có thể pha thêm 5% nước sạch</div>
                         </div>
 
                         <div class={cx('item')}>
                             <div class={cx('item-image')}>
-                                <img src="https://kansaipaint.com.vn/wp-content/themes/k6/assets/images/product_icon_6.png" alt="product_icon_1" />
+                                <img src={images.productDetail.clean} alt="product_icon_1" />
                             </div>
                             <div class={cx('item-title')}>
-                                <p>
-                                    Lau rửa			            </p>
+                                <p>Lau rửa</p>
                             </div>
                             <div class={cx('item-info')}>Rửa ngay với nước sạch</div>
                         </div>
@@ -178,7 +175,7 @@ function ShowProduct({ productID }) {
                                 <div class={cx('title')}>
                                     <p>Mục đích sử dụng</p>
                                 </div>
-                                <div class={cx('info')}><p>{data.name} 12&nbsp; sử dụng cho các bề mặt ngoại thất mới sơn hoặc đã sơn như tường gạch, thạch cao, trát xi măng hoặc tấm a-mi-ăng.</p>
+                                <div class={cx('info')}><p>{data.name} sử dụng cho các bề mặt ngoại thất mới sơn hoặc đã sơn như tường gạch, thạch cao, trát xi măng hoặc tấm a-mi-ăng.</p>
                                 </div>
                             </div>
                             <div className={cx('more-details-item')}>
